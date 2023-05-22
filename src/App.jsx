@@ -1,5 +1,8 @@
 // import { useState } from "react";
 import Preloader from "./Components/Preloader/Preloader"
+import Main from "./Components/Main/Main"
+
+import './AppStyle/App.css'
 
 function App() {
 
@@ -8,10 +11,7 @@ function App() {
   return (
     <>
       <Preloader/>
-
-      <div className="app">
-         <h1>Hola los tilines</h1>
-      </div>
+      <Main/>
     </>
   )
 }
