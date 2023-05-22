@@ -1,0 +1,14 @@
+.preloader-container {
+  height: 100vh;
+  width: 100vw;
+  background-color: #947FEA;
+  z-index: 10;
+  position: fixed;
+  overflow: hidden;
+}
+
+.preloader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}/*# sourceMappingURL=Preloader.css.map */

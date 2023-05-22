@@ -1,7 +1,17 @@
+// import { useState } from "react";
+import Preloader from "./Components/Preloader/Preloader"
+
 function App() {
+
+  // const [isQuizStarted, setQuizStarted] = useState(false);
+
   return (
     <>
-    <h1>Hola los tilines</h1>
+      <Preloader/>
+
+      <div className="app">
+         <h1>Hola los tilines</h1>
+      </div>
     </>
   )
 }
