@@ -1,19 +1,21 @@
-// import { useState } from "react";
-import Preloader from "./Components/Preloader/Preloader"
-import Main from "./Components/Main/Main"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Main from "./Components/Main/Main";
+import Quiz from "./Components/Quiz/Quiz";
 
-import './AppStyle/App.css'
+import "./AppStyle/App.css";
 
 function App() {
 
-  // const [isQuizStarted, setQuizStarted] = useState(false);
-
   return (
-    <>
-      <Preloader/>
-      <Main/>
-    </>
-  )
+    <div className="wrapper">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Main/>}></Route>
+          <Route path="/quiz" element={<Quiz/>}></Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
 
-export default App
+export default App;
