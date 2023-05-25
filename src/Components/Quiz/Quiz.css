@@ -1,1 +1,40 @@
-/*# sourceMappingURL=Quiz.css.map */
+.quizCard {
+  padding: 20px;
+  margin: auto;
+}
+
+.numberQuestion {
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: grid;
+  position: relative;
+  height: auto;
+  grid-template-columns: 150px 150px;
+  grid-row: auto auto;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  margin: 20% auto;
+  padding: 10px;
+  justify-content: center;
+}
+.buttons .btn {
+  width: 100%;
+  height: 150px;
+  border-radius: 10px;
+  border-color: #947FEA;
+  border-style: solid;
+  font-size: 20px;
+  color: #947FEA;
+  transition: 0.5s ease;
+}
+
+.btn:active {
+  background-color: #947FEA;
+  color: #fff;
+}
+
+.imageQuiz {
+  width: 100%;
+}/*# sourceMappingURL=Quiz.css.map */
