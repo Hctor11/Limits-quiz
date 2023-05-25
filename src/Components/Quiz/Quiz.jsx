@@ -2,7 +2,6 @@ import { useState } from "react";
 import Questions from "../../Questions/questions";
 import "../Quiz/Quiz.css";
 import Preloader from "../Preloader/Preloader";
-// import { redirect } from "react-router-dom";
 import FinishedQuiz from "../FinishedQuiz/FinishedQuiz";
 import img1 from "../../QuestionImg/q1.png";
 import img2 from "../../QuestionImg/q2.png";
@@ -13,26 +12,28 @@ import img5 from "../../QuestionImg/q5.png";
 const Quiz = () => {
   const [actualQuestion, setActualQuestion] = useState(0);
   const [points, setPoint] = useState(0);
-  const [isFinished, setIsFinished] = useState(false); 9
+  const [isFinished, setIsFinished] = useState(false);
 
   function handleAnswerSubmit(isCorrect, e) {
-    //agregar puntaje
-    if (isCorrect) setPoint(points + 1);
-    //agregar estilo para saber si es correct
-    e.target.classList.add(isCorrect ? "correct" : "incorrect");
-    //cambiar de pregunta
-    if(actualQuestion === Questions.length -1 ){
-      setIsFinished(true);
+    //agregar puntaje y estilos
+    if (isCorrect){ 
+      setPoint(points + 1)
+      e.target.classList.add("correct");
     }else{
-      setActualQuestion(actualQuestion + 1)
+      e.target.classList.add("incorrect");
     }
+
+    //cambiar de pregunta
+    setTimeout(() => {
+      if (actualQuestion === Questions.length - 1) {
+        setIsFinished(true);
+      } else {
+        setActualQuestion(actualQuestion + 1);
+      }
+    }, 1500);
   }
 
-  if(isFinished) return (
-    <FinishedQuiz>
-      
-    </FinishedQuiz>
-  );
+  if (isFinished) return <FinishedQuiz points={points}></FinishedQuiz>;
 
   const images = [img1, img2, img3, img4, img5];
 
@@ -48,6 +49,7 @@ const Quiz = () => {
             </span>
           </div>
           <div className="titleQuestion">
+          <h4 className="titleQ">Resuelve el siguiente limite:</h4>
             <img
               className="imageQuiz"
               src={images[actualQuestion]}
@@ -61,12 +63,7 @@ const Quiz = () => {
               <button
                 className="btn"
                 key={answer.ansText}
-                onClick={
-                  (e) => {
-                    handleAnswerSubmit(answer.isCorrect, e);
-                  }
-                }
-              >
+                onClick={(e) => handleAnswerSubmit(answer.isCorrect, e)}>
                 {answer.ansText}
               </button>
             ))}

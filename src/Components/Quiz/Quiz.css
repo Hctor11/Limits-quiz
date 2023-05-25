@@ -27,19 +27,23 @@
   border-style: solid;
   font-size: 20px;
   color: #947FEA;
-  transition: 0.5s ease;
+  transition: 0.3s ease-in-out;
 }
 
-.correct, .correct:hover {
+.correct:active {
   background-color: #49c46a;
   color: white;
 }
 
-.incorrect, .incorrect:hover {
+.incorrect:active {
   background-color: #eb6077;
   color: white;
 }
 
 .imageQuiz {
   width: 100%;
+}
+
+.titleQ {
+  margin: 20px 0;
 }/*# sourceMappingURL=Quiz.css.map */
