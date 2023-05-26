@@ -21,28 +21,28 @@ const Questions = [
 {
     img: "../QuestionImg/q3.png",
     options: [
-       {ansText: "uno", isCorrect: true},
-       {ansText: "tres", isCorrect: false},
        {ansText: "cero", isCorrect: false},
+       {ansText: "tres", isCorrect: false},
+       {ansText: "uno", isCorrect: true},
        {ansText: "dos", isCorrect: false}
     ],
 },
 {
     img: "../QuestionImg/q4.png",
     options: [
-       {ansText: "dos", isCorrect: true},
+       {ansText: "tres", isCorrect: false},
        {ansText: "uno", isCorrect: false},
        {ansText: "cinco", isCorrect: false},
-       {ansText: "diez", isCorrect: false}
+       {ansText: "dos", isCorrect: true}
     ],
 },
 {
     img: "../QuestionImg/q5.png",
     options: [
-       {ansText: "cuatro", isCorrect: false},
+       {ansText: "cuatro", isCorrect: true},
        {ansText: "dos", isCorrect: false},
        {ansText: "uno", isCorrect: false},
-       {ansText: "doce", isCorrect: true}
+       {ansText: "doce", isCorrect: false}
     ],
 }
 ];

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Questions from "../../Questions/questions";
 import "../Quiz/Quiz.css";
 import Preloader from "../Preloader/Preloader";
@@ -13,6 +13,8 @@ const Quiz = () => {
   const [actualQuestion, setActualQuestion] = useState(0);
   const [points, setPoint] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
+  const [timeRemaining, setTimeRemaining] = useState(15);
+  const [areDisabled, setAreDisabled] = useState(false);
 
   function handleAnswerSubmit(isCorrect, e) {
     //agregar puntaje y estilos
@@ -32,6 +34,22 @@ const Quiz = () => {
       }
     }, 1500);
   }
+
+  useEffect(() => {
+
+    const timeInterval = setInterval(() =>{
+
+      if(timeRemaining > 0) setTimeRemaining((prev) => prev - 1)
+      if(timeRemaining === 0){
+        // setAreDisabled(true)
+        setTimeRemaining(15);
+        setActualQuestion(actualQuestion + 1)
+      }
+
+    },1000)
+
+    return () => clearInterval(timeInterval);
+  }, [timeRemaining])
 
   if (isFinished) return <FinishedQuiz points={points}></FinishedQuiz>;
 
@@ -61,12 +79,20 @@ const Quiz = () => {
           <div className="buttons">
             {Questions[actualQuestion].options.map((answer) => (
               <button
+                disabled={areDisabled}
                 className="btn"
                 key={answer.ansText}
-                onClick={(e) => handleAnswerSubmit(answer.isCorrect, e)}>
+                onClick={(e) => {
+                  handleAnswerSubmit(answer.isCorrect, e)
+                  setTimeRemaining(15);
+                  setAreDisabled(false);
+                  }}>
                 {answer.ansText}
               </button>
             ))}
+          </div>
+          <div className="time-remaining">
+            <span className="time-remaining">tiempo restante: {timeRemaining}</span>
           </div>
         </div>
       </div>
